@@ -18,7 +18,7 @@ jobs:
     
     - name: Install Rancher
       id: installrancher      
-      if: ${{ installRancher == 'true' }}
+      if: ${{ github.event.inputs.installRancher == 'true' }}
       run: |
         echo 'Installing rancher' $installRancher        
       shell: bash
