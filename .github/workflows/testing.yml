@@ -1,0 +1,24 @@
+name: Testing 
+
+on: 
+  workflow_dispatch:
+    inputs:
+      install_rancher:
+        description: 'Install Rancher or not'
+        required: true
+        type: string
+        default: $installRancher
+jobs:
+  terraform-actions:
+    name: Provisioning EKS
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@master
+    
+    - name: Install Rancher
+      id: installrancher      
+      if: ${{ $installRancher == 'true' }}
+      run: |
+        echo 'Installing rancher' $installRancher        
+      shell: bash
