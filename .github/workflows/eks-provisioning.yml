@@ -49,13 +49,13 @@ jobs:
 
     - name: Terraform Init
       id: init
-      working-directory: $TERRAFORM_WORKING_DIRECTORY
+      working-directory: ${{ env.terraform_working_directory }}
       run: terraform init -backend-config=bucket=${{ github.event.inputs.s3_bucket }} -backend-config=key=${{ github.event.inputs.s3_keypath }} -backend-config=region=${{ github.event.inputs.aws_region }}
       continue-on-error: false
 
     - name: Terraform Apply
       id: apply
-      working-directory: $TERRAFORM_WORKING_DIRECTORY
+      working-directory: ${{ env.terraform_working_directory }}
       run: terraform apply -var 'cluster_name=${{ github.event.inputs.cluster_name }}' --auto-approve
       continue-on-error: false
       
