@@ -3,7 +3,7 @@ name: Testing
 on: 
   workflow_dispatch:
     inputs:
-      install_rancher:
+      installRancher:
         description: 'Install Rancher or not'
         required: true
         type: string
