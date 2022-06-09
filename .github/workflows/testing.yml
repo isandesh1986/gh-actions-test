@@ -7,7 +7,7 @@ on:
         description: 'Install Rancher or not'
         required: true
         type: string
-        default: $installRancher
+        default: true
 jobs:
   terraform-actions:
     name: Provisioning EKS
@@ -18,7 +18,7 @@ jobs:
     
     - name: Install Rancher
       id: installrancher      
-      if: ${{ $installRancher == 'true' }}
+      if: ${{ installRancher == 'true' }}
       run: |
         echo 'Installing rancher' $installRancher        
       shell: bash
