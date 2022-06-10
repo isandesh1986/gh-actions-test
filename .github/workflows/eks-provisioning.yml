@@ -1,4 +1,4 @@
-name: eks-provisioning
+name: EKS Provisioning
 
 on: 
   workflow_dispatch:
